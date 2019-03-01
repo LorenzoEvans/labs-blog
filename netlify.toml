@@ -1,4 +1,0 @@
-[build]
-base = "lab-blog/"
-publish = "lambda-labs/build/"
-command = "gatsby build"
