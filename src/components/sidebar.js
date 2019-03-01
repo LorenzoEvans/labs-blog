@@ -6,7 +6,8 @@ import {
   FaUserSecret,
   FaAlignLeft,
   FaGithub,
-  FaHashtag
+  FaHashtag,
+  FaTwitterSquare
 } from 'react-icons/fa'
 
 const Sidebar = styled.div`
@@ -169,12 +170,21 @@ export default ({ title, authorName }) => (
         </p>
         <p>
           <StyledHref
-            href="https://github.com/email2vimalraj"
+            href="https://github.com/LorenzoEvans"
             target="_blank"
             rel="noopener noreferrer"
           >
             <FaGithub /> <span>Github</span>
           </StyledHref>
+        </p>
+        <p>
+         <StyledHref
+         href="https://twitter.com/AtLorenzoEvans"
+         target="_blank"
+         rel="noopener noreferrer"
+         >
+         <FaTwitterSquare /> <span>Twitter</span>
+         </StyledHref>
         </p>
       </div>
     </MenuWrapper>

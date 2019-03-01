@@ -1,6 +1,6 @@
 ---
 title: 'Labs: Week 1.'
-date: '2018-12-08'
+date: '2019-03-10'
 tags: ['JavaScript', 'Gatsby']
 ---
 
