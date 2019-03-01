@@ -12,12 +12,12 @@ const Container = styled.div`
 
 const Content = styled.div`
   display: flex;
-  flex-direction: row-reverse;
+  flex-direction: column-reverse;
   flex: 1;
   ${'' /* overflow: scroll; */}
   padding: 20px;
   color: #7e7e7e;
-  margin-bottom: 50px;
+  margin-bottom: 450px;
 `
 
 const Query = graphql`
