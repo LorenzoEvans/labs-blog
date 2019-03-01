@@ -1,0 +1,4 @@
+[build]
+base = "lambda-labs/"
+publish = "lambda-labs/build/"
+command = "gatsby build"
