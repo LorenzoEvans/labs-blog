@@ -1,5 +1,8 @@
 # Gatsby Starter Tech Blog
 
+## Blog: 
+
+You can read this blog here: https://lambdalabs.netlify.com/
 ### Initial Setup
 
 - Clone this repo
