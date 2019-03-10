@@ -7,18 +7,16 @@ import Sidebar from './sidebar'
 
 const Container = styled.div`
   display: flex;
-  height: 100vh;
 `
 
 const Content = styled.div`
   display: flex;
   flex-direction: column-reverse;
   flex: 1;
-  ${'' /* overflow: scroll; */}
-  height: 100% ;
+  overflow: scroll;
+  height: 100vh ;
   padding: 20px;
   color: #7e7e7e;
-  margin-bottom: 450px;
 `
 
 const Query = graphql`
