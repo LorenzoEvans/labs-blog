@@ -14,10 +14,11 @@ const Content = styled.div`
   display: flex;
   flex-direction: column-reverse;
   flex: 1;
-  height: 100%;
   ${'' /* overflow: scroll; */}
+  height: 100% ;
   padding: 20px;
   color: #7e7e7e;
+  margin-bottom: 450px;
 `
 
 const Query = graphql`
