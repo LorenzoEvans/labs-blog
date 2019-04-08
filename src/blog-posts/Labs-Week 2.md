@@ -15,6 +15,42 @@ I know that on a team of developers, value doesn't just get added by adding code
 #### Detailed Analysis:
  #### _Commit:_ _*Tweaking A Promise Chain_.
 
-* #### https://github.com/Lambda-School-Labs/labspt2-rate-my-diy/blob/master/client/src/components/SignIn/ThirdPartyApi/Twitter.js 
+* ##### https://github.com/Lambda-School-Labs/labspt2-rate-my-diy/blob/master/client/src/components/SignIn/ThirdPartyApi/Twitter.js 
+
+```JS
+    this.props.firebase
+      .doSignInWithTwitter()
+      .then(socialAuthUser => {
+        var userBooleanValue = JSON.parse(
+          socialAuthUser.additionalUserInfo.isNewUser
+        );
+        if (userBooleanValue) {
+          const email = socialAuthUser.user.providerData["0"].email;
+          const uid = socialAuthUser.user.providerData["0"].uid;
+          this.setState({
+            isNewUser: true,
+            isOpen: true,
+            email: email,
+            uid: uid
+          });
+        } else {
+          this.props.history.push(ROUTES.HOME);
+        }
+        return this.props.firebase
+          .user(socialAuthUser.user.providerData["0"].uid)
+          .set({
+            email: socialAuthUser.user.email
+          });
+      })
+```
+This was a nifty trick I thought of, that altered the promise chain we were using to send an authenticated user object back to the firestore in firebase.
+The issue at hand was that, we could store the object, but before we stored it, we needed to use it to check the boolean value of the isNewUser property contained in the object, and then route our users to a different page to complete the 3rd party sign up, so that we had a unique identifier to relate authenticated users to. What I did was locate that key in the JSON object, parsed it, and bound it to a variable, and used it in the conditional section of an if statement.
+If the key is true, the email and uid string get stored in their own variables, and then passed back into state, and then forwarded to the input fields on the more info page we route users to if they are new. Otherwise, return them to the home page and let them do as they please. 
+The real tricky part was refactoring the promise chain to do this, and then also continue sending the information to firebase, so that we had the user object stored for later access.
+Another thing that it took me a while to figure out, was that, despite the fact that Github returns a JSON object, some of the properties inside of it were arrays, specifically *_providerData_*, which meant, instead of using dot notation all of the way, I would have to use bracket notation, and pass it the necessary key as a string, in order to access the desired property value. 
+
+
 
  #### _Part Two:_ *Milestone Reflections.*
+
+ All in all, this particular sprint was a learning experience about myself, how I percieve my contributions, value, and just how important and critical team dynamic is to developing a high quality software product in a timely manner. While I'm not quite satisified with my performance, I have extreme appreciation for the work my team has done this sprint, and am trying my best to analyze myself and course correct, so that in two weeks, I am entirely confident that I carried my weight.
